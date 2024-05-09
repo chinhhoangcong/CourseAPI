@@ -25,7 +25,6 @@ class BaseSerializer(serializers.ModelSerializer):
         return '/static/%s' % course.image.name
 
 
-
 class CourseSerializer(BaseSerializer):
     class Meta:
         model = Course
