@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'cloudinary',
+    'oauth2_provider'
 ]
 
 MIDDLEWARE = [
@@ -53,7 +55,23 @@ MIDDLEWARE = [
 ]
 
 import pymysql
+
 pymysql.install_as_MySQLdb()
+
+import cloudinary
+
+cloudinary.config(
+    cloud_name="chinhhoangcong17",
+    api_key="936683795435893",
+    api_secret="3Se3ea-u8_vUQirZbVPECMTHjYs",  # Click 'View Credentials' below to copy your API secret
+
+)
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    )
+}
 
 CKEDITOR_UPLOAD_PATH = "ckeditor/images/"
 
@@ -130,3 +148,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CLIENT_ID = 'YavzOeeXlKHmm3Esu4X3UKp5xWoo0lXWKJZmVLaZ'
+
+CLIENT_SECRET = 'SykZMSOB2UKvPLvP9zrYitPpANULfdClLOgnLhYoyXQyv5Pn6fL2whFJ5MNYsxQSrOVCYW2AldAZovQuVdET0UqS918NyNewpQclpRSyetXTlWVAERqYjVeJ9ryL4AJH'
+
+OAUTH2_PROVIDER = {
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
+}
