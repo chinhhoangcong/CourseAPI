@@ -70,7 +70,10 @@ class Comment(Interaction):
 
 
 class Like(Interaction):
-    active = models.CharField(max_length=255, null=False)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        unique_together = ('user', 'lesson')
 
 
 class Rating(Interaction):

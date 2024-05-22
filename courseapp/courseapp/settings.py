@@ -103,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'coursedb1',
         'USER': 'root',
-        'PASSWORD': '38948034',
+        'PASSWORD': '123456',
         'HOST': ''  # mặc định localhost
     }
 }
@@ -149,9 +149,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CLIENT_ID = 'YavzOeeXlKHmm3Esu4X3UKp5xWoo0lXWKJZmVLaZ'
+CLIENT_ID = 'cMhc6kKKTi2Iwt9fFBZ9PlCqXOPf3bcmsStHOC0f'
 
-CLIENT_SECRET = 'SykZMSOB2UKvPLvP9zrYitPpANULfdClLOgnLhYoyXQyv5Pn6fL2whFJ5MNYsxQSrOVCYW2AldAZovQuVdET0UqS918NyNewpQclpRSyetXTlWVAERqYjVeJ9ryL4AJH'
+CLIENT_SECRET = 'rKEmbRdE6ajr7ufKvHVj7C9rwRPTiiM1UjXzDMYej2IvASJFPK7mWwSwSoG1QcRz3cy9ynugaaq54HbO6gaNHpXCFojfFLTRAgzkEYLlInx6hZqYBxu2eW1xQFZkogXK'
 
 OAUTH2_PROVIDER = {
     'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'

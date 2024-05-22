@@ -34,7 +34,20 @@ class CourseSerializer(BaseSerializer):
 class LessonSerializer(BaseSerializer):
     class Meta:
         model = Lesson
-        fields = '__all__'
+        fields = ['id', 'subject', 'image', 'tags', 'content', 'created_date', 'updated_date']
+
+
+class LessonDetailSerializer(LessonSerializer):
+    liked = serializers.SerializerMethodField()
+
+    def get_liked(self, lesson):
+        request = self.context.get('request')
+        if request.user.is_authenticated:
+            return lesson.like_set.filter(active=True).exists()
+
+    class Meta:
+        model = LessonSerializer.Meta.model
+        fields = LessonSerializer.Meta.fields + ['liked']
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -60,4 +73,4 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ['id', 'content', 'user' ]
+        fields = ['id', 'content', 'user']
